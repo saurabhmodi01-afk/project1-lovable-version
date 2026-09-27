@@ -1,7 +1,7 @@
 import { useReveal } from '@/hooks/useReveal';
 
 const sponsors = [
-  { name: 'GeeksForGeeks', tier: 'Title Partner' },
+  { name: 'GFG Student Chapter', tier: 'Title Partner' },
   { name: 'Bennett University', tier: 'Host Institution' },
   { name: 'GeeksForGeeks', tier: 'Tech Partner' },
   { name: 'Devfolio', tier: 'Platform Partner' },
