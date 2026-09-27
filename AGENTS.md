@@ -11,3 +11,4 @@
 
 ## Event registrations
 - Public registrations are insert-only in Lovable Cloud (`public.event_registrations`): no anon read policy, so participant emails can't be scraped from the site.
+- Team composition is stored as a five-item JSON roster and enforced by a database trigger, so the five-member and female-member requirements cannot be bypassed.
