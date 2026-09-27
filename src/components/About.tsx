@@ -3,8 +3,8 @@ import { useReveal } from '@/hooks/useReveal';
 
 const stats = [
   { icon: Users, value: '500+', label: 'Heroes Expected' },
-  { icon: Trophy, value: '₹50K', label: 'Prize Pool' },
-  { icon: Calendar, value: '48', label: 'Hours of Action' },
+  { icon: Trophy, value: '₹50K', label: 'Core Cash Prizes' },
+  { icon: Calendar, value: '2', label: 'Days of Action' },
   { icon: MapPin, value: '4', label: 'Battle Tracks' },
 ];
 
@@ -12,13 +12,12 @@ export default function About() {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="about" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="about" className="relative py-24 md:py-32 overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 dots-bg opacity-30" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-marvel-red/5 blur-[120px] rounded-full" />
 
       <div ref={ref} className={`relative max-w-7xl mx-auto px-5 reveal ${visible ? 'visible' : ''}`}>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: text */}
           <div>
             <span className="section-label mb-4">
               <span className="w-8 h-px bg-marvel-gold" />
@@ -29,19 +28,15 @@ export default function About() {
               ARE FORGED IN CODE
             </h2>
             <p className="text-marvel-bone/60 text-lg leading-relaxed mb-6">
-              Welcome to the most epic tech event of the year. GeeksforGeeks
-              Student Chapter, Bennett University brings you a Marvel-themed
-              hackathon and tech fest that merges the worlds of comic-book
-              heroism with cutting-edge technology.
+              Welcome to a Marvel-themed tech fest by the GeeksforGeeks Student
+              Chapter at Bennett University, combining competitive coding,
+              design, debugging, and project building.
             </p>
             <p className="text-marvel-bone/50 text-base leading-relaxed mb-8">
-              Whether you're a Tony Stark of code, a Hulk of design, or a Thor of
-              algorithms — there's a track that needs your power. Assemble your
-              squad, pick your battle, and prove you have what it takes to save
-              the world.
+              Assemble your squad, choose your battle, and bring your strongest
+              technical skills to the multiverse.
             </p>
 
-            {/* Event meta */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-marvel-bone/70">
                 <Calendar className="w-5 h-5 text-marvel-red shrink-0" />
@@ -60,7 +55,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: stats grid */}
           <div className="grid grid-cols-2 gap-4">
             {stats.map((s, i) => {
               const Icon = s.icon;
