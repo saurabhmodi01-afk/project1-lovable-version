@@ -13,9 +13,11 @@ function calc() {
   };
 }
 
+// Starts at zeros so server and client markup match, then ticks after hydration.
 export function useCountdown() {
-  const [time, setTime] = useState(calc());
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   useEffect(() => {
+    setTime(calc());
     const id = setInterval(() => setTime(calc()), 1000);
     return () => clearInterval(id);
   }, []);
