@@ -4,7 +4,7 @@ import { useReveal } from '@/hooks/useReveal';
 const stats = [
   { icon: Users, value: '500+', label: 'Heroes Expected' },
   { icon: Trophy, value: '₹50K', label: 'Prize Pool' },
-  { icon: Calendar, value: '24', label: 'Hours of Action' },
+  { icon: Calendar, value: '48', label: 'Hours of Action' },
   { icon: MapPin, value: '4', label: 'Battle Tracks' },
 ];
 

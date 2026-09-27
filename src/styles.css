@@ -48,6 +48,10 @@
   --color-marvel-ink-3: var(--marvel-ink-3);
   --color-marvel-steel: var(--marvel-steel);
   --color-marvel-bone: var(--marvel-bone);
+  --color-hero-green: var(--hero-green);
+  --color-lightning-blue: var(--lightning-blue);
+  --color-venom: var(--venom);
+  --color-venom-light: var(--venom-light);
 
   --font-display: "Bebas Neue", Impact, sans-serif;
   --font-body: Inter, system-ui, sans-serif;
@@ -76,6 +80,10 @@
   --marvel-ink-3: oklch(0.22 0.016 285);
   --marvel-steel: oklch(0.31 0.018 285);
   --marvel-bone: oklch(0.966 0.002 285);
+  --hero-green: oklch(0.63 0.17 138);
+  --lightning-blue: oklch(0.7 0.17 239);
+  --venom: oklch(0.08 0.004 285);
+  --venom-light: oklch(0.86 0.01 285);
 
   --background: var(--marvel-ink);
   --foreground: var(--marvel-bone);

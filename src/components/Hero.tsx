@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Zap, Star } from 'lucide-react';
 import { useCountdown } from '@/hooks/useCountdown';
-
-const NEBULA = 'https://images.pexels.com/photos/37269529/pexels-photo-37269529.jpeg?auto=compress&cs=tinysrgb&w=1920';
+import multiverseAsset from '@/assets/Multiverse.jpeg.asset.json';
 
 function Counter({ value, label }: { value: number; label: string }) {
   return (
@@ -36,9 +35,9 @@ export default function Hero() {
       {/* Background layers */}
       <div className="absolute inset-0 -z-30">
         <img
-          src={NEBULA}
-          alt=""
-          className="w-full h-full object-cover opacity-30"
+          src={multiverseAsset.url}
+          alt="Marvel heroes assembled across the multiverse"
+          className="w-full h-full object-cover opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-marvel-ink/70 via-marvel-ink/80 to-marvel-ink" />
       </div>
