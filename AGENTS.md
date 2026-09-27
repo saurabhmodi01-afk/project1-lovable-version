@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Event registrations
+- Public registrations are insert-only in Lovable Cloud (`public.event_registrations`): no anon read policy, so participant emails can't be scraped from the site.

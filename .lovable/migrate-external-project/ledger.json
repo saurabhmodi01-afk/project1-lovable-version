@@ -1,0 +1,12 @@
+{
+  "capabilities": [
+    {"capability":"application code","source":"bolt zip","outcome":"rebuilt on TanStack Start with Tailwind v4 tokens","status":"verified","next_action":null},
+    {"capability":"schema","source":"supabase/migrations","outcome":"event_registrations created in Lovable Cloud","status":"verified","next_action":null},
+    {"capability":"records","source":"none attached","outcome":"no record export provided","status":"pending","next_action":"user exports existing registrations as CSV and attaches them"},
+    {"capability":"auth","source":"none","outcome":"source app had no auth","status":"not_applicable","next_action":null},
+    {"capability":"authorization","source":"RLS policies","outcome":"public insert only; anon SELECT intentionally dropped","status":"verified","next_action":null},
+    {"capability":"storage","source":"none","outcome":"no storage used","status":"not_applicable","next_action":null},
+    {"capability":"secrets","source":"VITE_SUPABASE_*","outcome":"replaced by Lovable Cloud credentials","status":"verified","next_action":null},
+    {"capability":"verification","source":"playwright","outcome":"page renders, form insert succeeded, test row removed","status":"verified","next_action":null}
+  ]
+}
