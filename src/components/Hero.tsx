@@ -32,15 +32,16 @@ export default function Hero() {
   return (
     <section id="hero" className="relative isolate min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12">
       {/* Background layers */}
-      <div className="absolute inset-0 -z-30">
+      <div className="absolute inset-0 -z-30 bg-gradient-to-b from-marvel-ink via-[#5a0000] to-[#8f0000]">
         <img
-          src="/images/multiverse.jpeg"
-          alt="Marvel heroes assembled across the multiverse"
-          className="w-full h-full object-cover object-center"
+          src="/images/multiverse-hero.jpeg"
+          alt="Silhouettes of Marvel heroes assembled on a hilltop against a red sky"
+          className="absolute left-0 top-[46%] w-full h-auto min-h-[60%] object-cover object-top [mask-image:linear-gradient(to_bottom,transparent,black_22%)]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-marvel-ink/60 via-marvel-ink/50 to-marvel-ink" />
+        <div className="absolute inset-x-0 top-0 h-[55%] bg-gradient-to-b from-marvel-ink/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-marvel-ink to-transparent" />
       </div>
-      <div className="absolute inset-0 -z-20 grid-bg opacity-40" />
+      <div className="absolute inset-0 -z-20 grid-bg opacity-20" />
       <div className="absolute inset-0 -z-10 spotlight" />
 
       {/* Scan line */}

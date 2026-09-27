@@ -18,8 +18,8 @@ const genderOptions = [
   { value: 'other', label: 'Other' },
 ] as const;
 
-type TeamMember = { name: string; gender: string };
-const emptyMembers = (): TeamMember[] => Array.from({ length: 5 }, () => ({ name: '', gender: '' }));
+type TeamMember = { name: string; enrollment_no: string; gender: string };
+const emptyMembers = (): TeamMember[] => Array.from({ length: 5 }, () => ({ name: '', enrollment_no: '', gender: '' }));
 
 const registrationSchema = z.object({
   name: z.string().trim().min(1, 'Team lead name is required.').max(100),
@@ -31,6 +31,7 @@ const registrationSchema = z.object({
   message: z.string().trim().max(1000),
   team_members: z.array(z.object({
     name: z.string().trim().min(1).max(100),
+    enrollment_no: z.string().trim().min(1).max(50),
     gender: z.enum(['female', 'male', 'other']),
   })).length(5).refine((members) => members.some((member) => member.gender === 'female'), 'Every team must include at least one female member.'),
 });
@@ -55,7 +56,7 @@ export default function Register() {
     if (!parsed.success) {
       const teamIssue = parsed.error.issues.find((issue) => issue.path[0] === 'team_members');
       setStatus('error');
-      setErrorMsg(teamIssue?.message === 'Required' ? 'Complete the name and gender for all five team members.' : parsed.error.issues[0]?.message ?? 'Please complete all required fields.');
+      setErrorMsg(teamIssue?.message === 'Required' ? 'Complete the name, enrollment no. and gender for all five team members.' : parsed.error.issues[0]?.message ?? 'Please complete all required fields.');
       return;
     }
 
@@ -124,9 +125,10 @@ export default function Register() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-4"><p className="font-mono text-xs uppercase text-marvel-gold">Five members required</p><p className="text-xs text-marvel-bone/40">At least one female member</p></div>
                 {teamMembers.map((member, index) => (
-                  <div key={index} className="grid grid-cols-[2rem_1fr] sm:grid-cols-[2rem_1fr_11rem] gap-3 items-center">
+                  <div key={index} className="grid grid-cols-[2rem_1fr] sm:grid-cols-[2rem_1fr_11rem_10rem] gap-3 items-center">
                     <span className="font-display text-xl text-marvel-bone/40 text-center">{index + 1}</span>
                     <label><span className="sr-only">Member {index + 1} name</span><input required maxLength={100} type="text" placeholder={`Member ${index + 1} Name *`} value={member.name} onChange={(event) => updateMember(index, 'name', event.target.value)} className={inputClass} /></label>
+                    <label className="col-start-2 sm:col-start-auto"><span className="sr-only">Member {index + 1} enrollment number</span><input required maxLength={50} type="text" placeholder="Enrollment No. *" value={member.enrollment_no} onChange={(event) => updateMember(index, 'enrollment_no', event.target.value)} className={inputClass} /></label>
                     <label className="col-start-2 sm:col-start-auto"><span className="sr-only">Member {index + 1} gender</span><select required value={member.gender} onChange={(event) => updateMember(index, 'gender', event.target.value)} className={`${inputClass} appearance-none cursor-pointer ${member.gender ? '' : 'text-marvel-bone/30'}`}>{genderOptions.map((option) => <option key={option.value || 'empty'} value={option.value} disabled={!option.value} className="bg-marvel-ink-3 text-marvel-bone">{option.label}</option>)}</select></label>
                   </div>
                 ))}
