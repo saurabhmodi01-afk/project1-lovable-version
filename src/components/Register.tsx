@@ -24,7 +24,7 @@ const emptyMembers = (): TeamMember[] => Array.from({ length: 5 }, () => ({ name
 const registrationSchema = z.object({
   name: z.string().trim().min(1, 'Team lead name is required.').max(100),
   email: z.string().trim().email('Enter a valid college email.').max(255).refine((value) => value.toLowerCase().endsWith('@bennett.edu.in'), 'Only Bennett University college emails (@bennett.edu.in) are allowed.'),
-  phone: z.string().trim().max(20),
+  phone: z.string().trim().refine((value) => value === '' || /^(?:\\+91[ -]?)?[6-9]\\d{9}$/.test(value.replace(/[()]/g, '')), 'Enter a valid Indian mobile number or leave it blank.'),
   university_id: z.string().trim().min(1, 'Enrollment number is required.').max(50),
   track: z.string().min(1, 'Choose an event track.'),
   team_name: z.string().trim().min(1, 'Team name is required.').max(100),
@@ -87,7 +87,7 @@ export default function Register() {
   const iconInputClass = `${inputClass} pl-11`;
 
   return (
-    <section id="register" className="relative py-24 md:py-32 overflow-hidden bg-marvel-ink-2/30">
+    <section id="register" className="relative py-24 md:py-32 overflow-hidden bg-marvel-ink-2/30 scroll-mt-20">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div ref={ref} className={`relative max-w-4xl mx-auto px-5 reveal ${visible ? 'visible' : ''}`}>
         <div className="text-center mb-12">
