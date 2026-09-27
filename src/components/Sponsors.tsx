@@ -5,8 +5,8 @@ const sponsors = [
   { name: 'Bennett University', tier: 'Host Institution' },
   { name: 'Supabase', tier: 'Tech Partner' },
   { name: 'Devfolio', tier: 'Platform Partner' },
-  { name: 'GitHub', tier: 'Community Partner' },
-  { name: 'Reskilll', tier: 'Community Partner' },
+  { name: 'GitHub', tier: 'Open Source Partner' },
+  { name: "Domino's", tier: 'Community Partner' },
 ];
 
 const faqs = [
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: 'Do I need a team?',
-    a: 'You can participate solo or in a team of up to 4 members. For the Iron Man hackathon track, teams of 2–4 are recommended.',
+    a: 'Yes, a team is mandatory. Solo entries are not accepted — every hero must assemble with a team of 2 to 4 members to participate in any track.',
   },
   {
     q: 'Is there a registration fee?',

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Zap, Star } from 'lucide-react';
 import { useCountdown } from '@/hooks/useCountdown';
-import multiverseAsset from '@/assets/Multiverse.jpeg.asset.json';
 
 function Counter({ value, label }: { value: number; label: string }) {
   return (
@@ -31,15 +30,15 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12">
+    <section id="hero" className="relative isolate min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12">
       {/* Background layers */}
       <div className="absolute inset-0 -z-30">
         <img
-          src={multiverseAsset.url}
+          src="/images/multiverse.jpeg"
           alt="Marvel heroes assembled across the multiverse"
-          className="w-full h-full object-cover opacity-55"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-marvel-ink/70 via-marvel-ink/80 to-marvel-ink" />
+        <div className="absolute inset-0 bg-gradient-to-b from-marvel-ink/60 via-marvel-ink/50 to-marvel-ink" />
       </div>
       <div className="absolute inset-0 -z-20 grid-bg opacity-40" />
       <div className="absolute inset-0 -z-10 spotlight" />

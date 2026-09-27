@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { Cpu, Code2, Brain, Bug, ArrowUpRight } from 'lucide-react';
 import { useReveal } from '@/hooks/useReveal';
-import ironManAsset from '@/assets/Iron_man.jpeg.asset.json';
-import hulkAsset from '@/assets/Hulk.jpeg.asset.json';
-import thorAsset from '@/assets/thor.jpeg.asset.json';
-import spiderManAsset from '@/assets/Spider_man.jpeg.asset.json';
 
 const tracks = [
   {
@@ -12,7 +8,7 @@ const tracks = [
     name: 'IRON MAN',
     subtitle: 'Full-Stack Hackathon',
     icon: Cpu,
-    image: ironManAsset.url,
+    image: '/images/iron-man.jpeg',
     imageAlt: 'Iron Man illuminated by his arc reactor',
     accentText: 'text-marvel-red',
     accentBg: 'bg-marvel-red',
@@ -29,7 +25,7 @@ const tracks = [
     name: 'HULK',
     subtitle: 'UI/UX Design Battle',
     icon: Code2,
-    image: hulkAsset.url,
+    image: '/images/hulk.jpeg',
     imageAlt: 'Hulk fists clenched together',
     accentText: 'text-hero-green',
     accentBg: 'bg-hero-green',
@@ -46,7 +42,7 @@ const tracks = [
     name: 'THOR',
     subtitle: 'Algorithm Showdown',
     icon: Brain,
-    image: thorAsset.url,
+    image: '/images/thor.jpeg',
     imageAlt: 'Thor surrounded by blue lightning with Mjolnir',
     accentText: 'text-lightning-blue',
     accentBg: 'bg-lightning-blue',
@@ -63,7 +59,7 @@ const tracks = [
     name: 'SPIDER-MAN',
     subtitle: 'Bug Hunt & Debug',
     icon: Bug,
-    image: spiderManAsset.url,
+    image: '/images/spider-man.jpeg',
     imageAlt: 'Black venom-inspired Spider-Man emblem',
     accentText: 'text-venom-light',
     accentBg: 'bg-venom-light',
@@ -119,10 +115,12 @@ export default function Tracks() {
         </div>
 
         <div key={track.id} className={`relative overflow-hidden rounded-lg border animate-fade-in ${track.panel} ${track.border}`}>
-          <div className="grid md:grid-cols-[0.9fr_1.1fr] min-h-[520px]">
+          <img src={track.image} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover scale-110 blur-sm" />
+          <div className="absolute inset-0 bg-marvel-ink/75" />
+          <div className="relative grid md:grid-cols-[0.9fr_1.1fr] min-h-[520px]">
             <div className="relative min-h-80 md:min-h-full overflow-hidden">
-              <img src={track.image} alt={track.imageAlt} className="absolute inset-0 h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-marvel-ink via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-marvel-ink" />
+              <img src={track.image} alt={track.imageAlt} className="absolute inset-0 h-full w-full object-cover object-center" />
+              <div className="absolute inset-0 bg-gradient-to-t from-marvel-ink/90 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-marvel-ink/80" />
             </div>
             <div className="relative p-8 md:p-12 flex flex-col justify-center">
               <div className={`w-16 h-16 rounded-lg flex items-center justify-center mb-6 ${track.accentSoft}`}>
