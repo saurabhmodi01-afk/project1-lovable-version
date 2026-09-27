@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { User, Mail, Phone, Hash, Users, MessageSquare, Loader2, CheckCircle2, AlertCircle, Zap } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '@/integrations/supabase/client';
 import { useReveal } from '@/hooks/useReveal';
 
 const trackOptions = [
