@@ -7,7 +7,7 @@ const schedule = [
     items: [
       { time: '09:00', title: 'Assembly & Check-in', desc: 'Heroes gather. Badges distributed.', tag: 'Opening' },
       { time: '10:00', title: 'Opening Ceremony', desc: 'The portal opens. Rules of engagement revealed.', tag: 'Ceremony' },
-      { time: '11:00', title: 'Hackathon Kicks Off', desc: '24-hour coding marathon begins. Build, deploy, conquer.', tag: 'Iron Man' },
+      { time: '11:00', title: 'Hackathon Kicks Off', desc: 'Coding marathon begins. Build, deploy, conquer.', tag: 'Iron Man' },
       { time: '13:00', title: 'Algorithm Round 1', desc: 'First wave of competitive programming challenges.', tag: 'Thor' },
       { time: '16:00', title: 'Design Sprint', desc: 'UI/UX battle begins. 3 hours to create magic.', tag: 'Hulk' },
       { time: '20:00', title: 'Bug Hunt Arena', desc: 'Live debugging competition. Spot. Squash. Win.', tag: 'Spider-Man' },
@@ -31,7 +31,7 @@ export default function Schedule() {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="schedule" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="schedule" className="relative py-24 md:py-32 overflow-hidden scroll-mt-20">
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-marvel-red/5 blur-[120px] rounded-full" />
 
       <div ref={ref} className={`relative max-w-7xl mx-auto px-5 reveal ${visible ? 'visible' : ''}`}>
@@ -61,7 +61,6 @@ export default function Schedule() {
                     className="relative group"
                     style={{ animationDelay: `${(di * 6 + i) * 80}ms` }}
                   >
-                    {/* Dot */}
                     <div className="absolute -left-[27px] top-4 w-3 h-3 rounded-full bg-marvel-ink border-2 border-marvel-red group-hover:bg-marvel-red group-hover:scale-125 transition-all duration-300" />
 
                     <div className="glass-card p-4 group-hover:border-marvel-red/30 transition-all duration-300">
@@ -71,9 +70,7 @@ export default function Schedule() {
                           {item.tag}
                         </span>
                       </div>
-                      <h4 className="font-display text-lg text-marvel-bone tracking-wide mb-0.5">
-                        {item.title}
-                      </h4>
+                      <h4 className="font-display text-lg text-marvel-bone tracking-wide mb-0.5">{item.title}</h4>
                       <p className="text-sm text-marvel-bone/50">{item.desc}</p>
                     </div>
                   </div>

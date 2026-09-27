@@ -7,7 +7,6 @@ const prizes = [
     amount: '₹15,000',
     icon: Medal,
     color: 'from-slate-300 to-slate-500',
-    glow: 'rgba(148, 163, 184, 0.2)',
     perks: ['Certificate of Valor', 'GFG Premium 3mo', 'Swag Kit', 'Mentor Session'],
   },
   {
@@ -15,7 +14,6 @@ const prizes = [
     amount: '₹25,000',
     icon: Trophy,
     color: 'from-marvel-gold to-amber-600',
-    glow: 'rgba(240, 165, 0, 0.3)',
     perks: ['Champion Trophy', 'GFG Premium 6mo', 'Premium Swag', 'Internship Referral', 'Feature on GFG Blog'],
     featured: true,
   },
@@ -24,7 +22,6 @@ const prizes = [
     amount: '₹10,000',
     icon: Award,
     color: 'from-amber-600 to-amber-800',
-    glow: 'rgba(180, 83, 9, 0.2)',
     perks: ['Certificate of Valor', 'GFG Premium 2mo', 'Swag Kit'],
   },
 ];
@@ -33,7 +30,7 @@ export default function Prizes() {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="prizes" className="relative py-24 md:py-32 overflow-hidden bg-marvel-ink-2/30">
+    <section id="prizes" className="relative py-24 md:py-32 overflow-hidden bg-marvel-ink-2/30 scroll-mt-20">
       <div className="absolute inset-0 dots-bg opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-marvel-gold/5 blur-[150px] rounded-full" />
 
@@ -48,7 +45,7 @@ export default function Prizes() {
             THE <span className="gold-gradient">TREASURE</span>
           </h2>
           <p className="text-marvel-bone/50 mt-4 max-w-xl mx-auto">
-            Heroes don't fight for glory alone. Here's what awaits the champions of the multiverse.
+            ₹50,000 in core cash prizes, plus a separate ₹2,000 Best Team Name bonus.
           </p>
         </div>
 
@@ -69,9 +66,7 @@ export default function Prizes() {
                   </div>
                 )}
 
-                <div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center mb-6 mx-auto`}
-                >
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center mb-6 mx-auto`}>
                   <Icon className="w-8 h-8 text-marvel-ink" strokeWidth={2} />
                 </div>
 
@@ -95,7 +90,6 @@ export default function Prizes() {
           })}
         </div>
 
-        {/* Bonus prize banner */}
         <div className="mt-10 glass-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-marvel-red/20">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-marvel-red/10 flex items-center justify-center">
@@ -103,7 +97,7 @@ export default function Prizes() {
             </div>
             <div>
               <p className="font-display text-xl text-marvel-bone tracking-wide">Best Team Name</p>
-              <p className="text-sm text-marvel-bone/50">₹2,000 bonus for the most creative Marvel-themed team name</p>
+              <p className="text-sm text-marvel-bone/50">Separate bonus for the most creative Marvel-themed team name</p>
             </div>
           </div>
           <span className="font-display text-2xl text-marvel-gold">+ ₹2,000</span>
