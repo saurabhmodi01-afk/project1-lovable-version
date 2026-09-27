@@ -3,7 +3,7 @@ import { useReveal } from '@/hooks/useReveal';
 const sponsors = [
   { name: 'GeeksforGeeks', tier: 'Title Partner' },
   { name: 'Bennett University', tier: 'Host Institution' },
-  { name: 'Supabase', tier: 'Tech Partner' },
+  { name: 'GeeksForGeeks', tier: 'Tech Partner' },
   { name: 'Devfolio', tier: 'Platform Partner' },
   { name: 'GitHub', tier: 'Open Source Partner' },
   { name: "Domino's", tier: 'Community Partner' },
