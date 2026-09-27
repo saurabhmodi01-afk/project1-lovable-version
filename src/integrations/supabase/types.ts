@@ -22,7 +22,8 @@ export type Database = {
           message: string | null
           name: string
           phone: string | null
-          team_name: string | null
+          team_members: Json
+          team_name: string
           track: string
           university_id: string | null
         }
@@ -33,7 +34,8 @@ export type Database = {
           message?: string | null
           name: string
           phone?: string | null
-          team_name?: string | null
+          team_members: Json
+          team_name: string
           track: string
           university_id?: string | null
         }
@@ -44,7 +46,8 @@ export type Database = {
           message?: string | null
           name?: string
           phone?: string | null
-          team_name?: string | null
+          team_members?: Json
+          team_name?: string
           track?: string
           university_id?: string | null
         }
