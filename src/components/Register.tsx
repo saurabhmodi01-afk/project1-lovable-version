@@ -19,7 +19,7 @@ const genderOptions = [
 ] as const;
 
 type TeamMember = { name: string; enrollment_no: string; gender: string };
-const emptyMembers = (): TeamMember[] => Array.from({ length: 5 }, () => ({ name: '', enrollment_no: '', gender: '' }));
+const emptyMembers = (): TeamMember[] => Array.from({ length: 4 }, () => ({ name: '', enrollment_no: '', gender: '' }));
 
 const registrationSchema = z.object({
   name: z.string().trim().min(1, 'Team lead name is required.').max(100),
@@ -33,7 +33,7 @@ const registrationSchema = z.object({
     name: z.string().trim().min(1).max(100),
     enrollment_no: z.string().trim().min(1).max(50),
     gender: z.enum(['female', 'male', 'other']),
-  })).length(5).refine((members) => members.some((member) => member.gender === 'female'), 'Every team must include at least one female member.'),
+  })).length(4).refine((members) => members.some((member) => member.gender === 'female'), 'Every team must include at least one female member.'),
 });
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -56,7 +56,7 @@ export default function Register() {
     if (!parsed.success) {
       const teamIssue = parsed.error.issues.find((issue) => issue.path[0] === 'team_members');
       setStatus('error');
-      setErrorMsg(teamIssue?.message === 'Required' ? 'Complete the name, enrollment no. and gender for all five team members.' : parsed.error.issues[0]?.message ?? 'Please complete all required fields.');
+      setErrorMsg(teamIssue?.message === 'Required' ? 'Complete the name, enrollment no. and gender for all four team members.' : parsed.error.issues[0]?.message ?? 'Please complete all required fields.');
       return;
     }
 
@@ -123,7 +123,7 @@ export default function Register() {
                 <label><span className="sr-only">Event track</span><select required value={form.track} onChange={(event) => update('track', event.target.value)} className={`${inputClass} appearance-none cursor-pointer ${form.track ? '' : 'text-marvel-bone/30'}`}><option value="" disabled>Select Event Track *</option>{trackOptions.map((track) => <option key={track.value} value={track.value} className="bg-marvel-ink-3 text-marvel-bone">{track.label}</option>)}</select></label>
               </div>
               <div className="space-y-3">
-                <div className="flex items-center justify-between gap-4"><p className="font-mono text-xs uppercase text-marvel-gold">Five members required</p><p className="text-xs text-marvel-bone/40">At least one female member</p></div>
+                <div className="flex items-center justify-between gap-4"><p className="font-mono text-xs uppercase text-marvel-gold">Four members required</p><p className="text-xs text-marvel-bone/40">At least one female member</p></div>
                 {teamMembers.map((member, index) => (
                   <div key={index} className="grid grid-cols-[2rem_1fr] sm:grid-cols-[2rem_1fr_11rem_10rem] gap-3 items-center">
                     <span className="font-display text-xl text-marvel-bone/40 text-center">{index + 1}</span>
