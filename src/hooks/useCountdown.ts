@@ -2,9 +2,17 @@ import { useEffect, useState } from 'react';
 
 const EVENT_DATE = new Date('2026-10-18T09:00:00+05:30').getTime();
 
-function calc() {
-  const now = Date.now();
-  const diff = Math.max(0, EVENT_DATE - now);
+type Countdown = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+const EMPTY: Countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+function calc(): Countdown {
+  const diff = Math.max(0, EVENT_DATE - Date.now());
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -13,13 +21,22 @@ function calc() {
   };
 }
 
-// Starts at zeros so server and client markup match, then ticks after hydration.
+// Keep the SSR/initial render deterministic, but never show misleading 00s
+// while the client is hydrating.
 export function useCountdown() {
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [time, setTime] = useState<Countdown>(EMPTY);
+  const [ready, setReady] = useState(false);
+
   useEffect(() => {
-    setTime(calc());
-    const id = setInterval(() => setTime(calc()), 1000);
-    return () => clearInterval(id);
+    const tick = () => {
+      setTime(calc());
+      setReady(true);
+    };
+
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
   }, []);
-  return time;
+
+  return { ...time, ready };
 }
