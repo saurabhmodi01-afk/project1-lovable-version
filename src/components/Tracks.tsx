@@ -56,7 +56,7 @@ const tracks = [
 export default function Tracks() {
   const [active, setActive] = useState(0);
   const { ref, visible } = useReveal<HTMLDivElement>();
-  const track = tracks[active];
+  const track = tracks[active]!;
   const Icon = track.icon;
 
   return (
